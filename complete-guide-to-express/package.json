@@ -1,0 +1,38 @@
+{
+  "name": "complete-guide-to-express",
+  "version": "1.0.0",
+  "description": "This is Express practice",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js --exec babel-node --presets env",
+    "build": "babel src -d dist --source-maps",
+    "serve": "node app.js"
+  },
+  "keywords": [
+    "Nodejs",
+    "Express"
+  ],
+  "author": "Manish kumar Giri",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "config": "^3.3.6",
+    "connect-mongo": "^4.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.0.12",
+    "morgan": "^1.10.0",
+    "passport": "^0.5.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.3.0",
+    "@typescript-eslint/parser": "^5.3.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^8.1.0",
+    "nodemon": "^2.0.14"
+  }
+}
