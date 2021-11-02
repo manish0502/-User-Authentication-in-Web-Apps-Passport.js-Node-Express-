@@ -5,13 +5,22 @@ const PORT = process.env.PORT || 3000;
 const connectDB= require('./config/db')
 var logger = require('morgan')
 const cors = require('cors')
+const session = require('express-session'); 
 const authRouter=require('./routes/auth.router')
+const connection= require('./config/db')
+const MongoDbStore = require('connect-mongo')(session);
+
 
 
 
 /**---------Connect Database------------- */ 
 
-connectDB();
+//connectDB();
+
+connection
+
+
+
 
 /**------Some More middleware-----*/
 
@@ -27,6 +36,31 @@ app.use(cors({
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+
+
+/*********************** Session Store********************************/
+
+let sessionStore = new MongoDbStore({
+    mongooseConnection: connection,
+    collection: 'sessions'
+})
+
+
+
+/*********************** Configration for Sessions ********************************/
+
+app.use(session({
+
+    secret:process.env.SECRET_KEY,
+    resave: false,
+    saveUninitialized:true,
+    store: sessionStore,
+    cookie:{
+         maxAge: 1000 * 60 * 60 * 24 
+    }
+
+}))
+
 
 
 /** ----------Routes---------- */

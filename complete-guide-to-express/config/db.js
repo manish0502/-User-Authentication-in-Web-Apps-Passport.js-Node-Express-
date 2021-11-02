@@ -4,48 +4,47 @@ const mongoose = require('mongoose');
 const url = process.env.DB_STRING
 
 
+const dbOptions = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}   
+
+const connection = mongoose.createConnection(url, dbOptions,
+    
+    (err, db) => {
+        
+        if (err) {
+            console.log('Unable to connect to the server. Please start the server. Error:', err);
+        } else {
+            console.log('MongoDB Connected to Express Server successfully!...');
+        }
+});
+
+module.exports = connection;
 
 
-const connectDB = async ()=>{
-    try{
-        await mongoose.connect(url,
-            { 
-                useUnifiedTopology: true ,
-                useNewUrlParser: true 
-            });
-        console.log('MongoDB Connected .....')
+// const connectDB = async ()=>{
+//     try{
+//         await mongoose.createConnection(url,
+//             { 
+//                 useUnifiedTopology: true ,
+//                 useNewUrlParser: true 
+//             });
+//         console.log('MongoDB Connected .....')
 
-    }catch(err){
+//     }catch(err){
 
         
-        console.error(err.message);
+//         console.error(err.message);
 
-        //Exit process with Failure
-        process.exit(1);
+//         //Exit process with Failure
+//         process.exit(1);
 
-    }
-}
-// const connection = mongoose.createConnection(url, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-// });
+//     }
+// }
+
+//module.exports = connectDB;
 
 
-// const DB = mongoose.createConnection(url, {
-
-//        useNewUrlParser: true,
-//        useUnifiedTopology: true
-//      });
-
-// const connection = mongoose.connection;
-// connection.once('open', () => {
-//     console.log('Database connected...');
-// }).catch(err => {
-//     console.log('Connection failed...')
-    
-// });
-
-
-module.exports = connectDB;
 
 
