@@ -8,7 +8,9 @@ const cors = require('cors')
 const session = require('express-session'); 
 const authRouter=require('./routes/auth.router')
 const connection= require('./config/db')
+const flash = require('express-flash');
 const MongoDbStore = require('connect-mongo')(session);
+var passport = require('passport');
 
 
 
@@ -22,20 +24,6 @@ connection
 
 
 
-/**------Some More middleware-----*/
-
-app.use(logger('dev'))
-app.use(cors({
-    origin: ['http://localhost:4200'],
-    credentials:true
-}));
-
-
-
-/**------------middleware--------------------- */
-
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
 
 
 /*********************** Session Store********************************/
@@ -62,6 +50,43 @@ app.use(session({
 }))
 
 
+/*********************** Passport Configration ************************************/
+
+
+const passportInit = require('./passport/pasport')
+passportInit(passport)
+app.use(passport.initialize())
+app.use(passport.session())
+
+
+/*********************** Using Flash as middleware ********************************/
+
+app.use(flash());
+
+/*********************** Other middleware ********************************/
+
+app.use(logger('dev'))
+app.use(cors({
+    origin: ['http://localhost:4200'],
+    credentials:true
+}));
+
+
+
+/**------------middleware--------------------- */
+
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
+
+
+/*********************** Setup Global Middleware ********************************/
+
+app.use((req, res, next)=>{
+    res.locals.session = req.session;
+    res.locals.user = req.user
+    next();
+})
 
 /** ----------Routes---------- */
 
