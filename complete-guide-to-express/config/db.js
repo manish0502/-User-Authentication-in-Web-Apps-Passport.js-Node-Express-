@@ -7,9 +7,10 @@ const url = process.env.DB_STRING
 const dbOptions = {
     useNewUrlParser: true,
     useUnifiedTopology: true
-}   
+    }   
 
-const connection = mongoose.createConnection(url, dbOptions,
+
+const connection = mongoose.connect(url, dbOptions,
     
     (err, db) => {
         
@@ -21,30 +22,4 @@ const connection = mongoose.createConnection(url, dbOptions,
 });
 
 module.exports = connection;
-
-
-// const connectDB = async ()=>{
-//     try{
-//         await mongoose.createConnection(url,
-//             { 
-//                 useUnifiedTopology: true ,
-//                 useNewUrlParser: true 
-//             });
-//         console.log('MongoDB Connected .....')
-
-//     }catch(err){
-
-        
-//         console.error(err.message);
-
-//         //Exit process with Failure
-//         process.exit(1);
-
-//     }
-// }
-
-//module.exports = connectDB;
-
-
-
 

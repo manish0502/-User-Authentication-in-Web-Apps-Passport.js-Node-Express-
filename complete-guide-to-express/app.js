@@ -1,4 +1,5 @@
 require('dotenv').config();
+const mongoose = require("mongoose");
 const express = require('express');
 const app= express();
 const PORT = process.env.PORT || 3000;
@@ -11,6 +12,11 @@ const connection= require('./config/db')
 const flash = require('express-flash');
 const MongoDbStore = require('connect-mongo')(session);
 var passport = require('passport');
+
+// error handler
+const notFoundMiddleware = require('./middleware/not-found');
+const errorHandlerMiddleware = require('./middleware/error-handler');
+
 
 
 
@@ -29,7 +35,7 @@ connection
 /*********************** Session Store********************************/
 
 let sessionStore = new MongoDbStore({
-    mongooseConnection: connection,
+    mongooseConnection: mongoose.connection,
     collection: 'sessions'
 })
 
@@ -92,7 +98,8 @@ app.use((req, res, next)=>{
 
 app.use('/api/v1/auth', authRouter);
 
-
+app.use(notFoundMiddleware);
+app.use(errorHandlerMiddleware);
 
 
 app.listen(PORT, ()=>{
