@@ -111,7 +111,8 @@ const login = asyncWrapper( async (req, res ,next ) => {
 
   const { email, password }   = req.body
 
-  // Validate request 
+  /**  Validate request  */  
+
    if(!email || !password) {
 
         throw new BadRequestError('Please provide email and password')
@@ -123,7 +124,9 @@ const login = asyncWrapper( async (req, res ,next ) => {
        }
        if(!user) {
 
-         return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(info);
+        // return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(info);
+        return res.redirect('/api/v1/auth/login-failure')
+
 
        }
        req.logIn(user, (err) => {
@@ -131,17 +134,28 @@ const login = asyncWrapper( async (req, res ,next ) => {
             return res.status(StatusCodes.BAD_REQUEST).json(err);
 
            }
-           return res.status(StatusCodes.OK).json({
-             msg:'You have Login Successfully',
-             status:StatusCodes.OK,
-             userDetails:{ name: user.name }
-            })
+           return res.redirect('/api/v1/auth/login-success')
+          //  return res.status(StatusCodes.OK).json({
+          //    msg:'You have Login Successfully',
+          //    status:StatusCodes.OK,
+          //    userDetails:{ name: user.name }
+          //   })
        })
    })(req, res, next)
 })
 
+const logout = (req, res, next) => {
+      req.logout();
+      res.json({
+        msg:"You have been logout Successfully",
+        status:StatusCodes.OK,
+      })
+     // res.redirect('/api/v1/protect/protected-route');
+};
 
-
+const protectedRoute =  (req, res, next) =>{
+       res.send('You made it to the route.');
+};
 
 /** visit to http://localhost:5000/api/v1/auth/simple and you will see the response */
 
@@ -189,7 +203,7 @@ const loginForm = (req, res, next) => {
 
 const loginSuccess = (req, res, next) => {
   res.send(
-    '<p>You successfully logged in. --> <a href="/protected-route">Go to protected route</a></p>'
+    '<p>You successfully logged in. --> <a href="/api/v1/protect/protected-route">Go to protected route</a></p>'
   );
 };
 
@@ -199,6 +213,9 @@ const loginFailure = (req, res, next) => {
   res.send("You entered the wrong password.");
 };
 
+
+
+
 module.exports = {
   register,
   login,
@@ -206,6 +223,8 @@ module.exports = {
   redirectRegister,
   registerForm,
   loginForm,
+  logout,
+  protectedRoute,
   loginSuccess,
   loginFailure,
 };

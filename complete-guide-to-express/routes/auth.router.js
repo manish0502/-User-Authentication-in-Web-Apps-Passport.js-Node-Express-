@@ -4,6 +4,8 @@ const router = express.Router();
 const {
   register,
   login,
+  logout,
+  protectedRoute,
   simple,
   redirectRegister,
   registerForm,
@@ -17,6 +19,10 @@ router.route("/").get(redirectRegister);
 router.route("/register").post(register).get(registerForm);
 
 router.route("/login").post(login).get(loginForm);
+
+router.route("/logout").get(logout);
+
+router.route("/protected-route").get(protectedRoute)
 
 router.route("/simple").get(simple);
 
