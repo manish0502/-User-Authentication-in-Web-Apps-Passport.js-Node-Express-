@@ -59,7 +59,7 @@ app.use(session({
 /*********************** Passport Configration ************************************/
 
 
-const passportInit = require('./passport/pasport')
+const passportInit = require('./passport/passport')
 passportInit(passport)
 app.use(passport.initialize())
 app.use(passport.session())
