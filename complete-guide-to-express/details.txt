@@ -1,0 +1,8 @@
+### 
+
+1. This is the best way of implementing Passport Local Authentication
+2. Also implemented Authorize routes
+3. Register the user , login and logout is implemented here
+4. This is Session based authentication
+5. Mongo Altas used for data store
+
