@@ -13,6 +13,17 @@
 
 ### Description
 
+1. Passport-Local strategy
+
+### Install Node.js ,Expressjs and MongoDB:
+
+```sh
+$ git clone https://github.com/manish0502/User-Authentication-in-Web-Apps.git
+$ cd complete-guide-to-express
+$ npm i and  npm start
+$ http://localhost:5000/api/v1/auth/register
+```
+
 
 8. Send Email (nodemailer,ethereal and sendgrid )
 9. Stripe Payment
