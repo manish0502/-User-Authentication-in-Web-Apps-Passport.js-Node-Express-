@@ -8,7 +8,7 @@ const decrypt = require('./decrypt');
 const publicKey = fs.readFileSync(__dirname + '/id_rsa_pub.pem', 'utf8');
 
 // Stores a Buffer object
-const newMessage = "hello Dear , lets learn Cryptography";
+const newMessage = "Hello Dear , Let's learn Cryptography";
 
 const encryptedMessage = encrypt.encryptWithPublicKey(publicKey, newMessage);
 
