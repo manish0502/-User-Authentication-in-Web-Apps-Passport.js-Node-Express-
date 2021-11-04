@@ -1,0 +1,10 @@
+to generate keypair : node createKeypair.js
+
+
+to do data sharing do : node main.js
+
+
+
+to do  verifyIdentities do : node verifyIdentity.js
+
+
