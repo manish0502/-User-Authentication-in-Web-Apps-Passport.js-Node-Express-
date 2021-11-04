@@ -29,7 +29,10 @@ $ http://localhost:5000/api/v1/auth/register
  * `passport-local-strategy `- The local authentication strategy authenticates users using a username and password. The strategy requires a verify callback, which accepts these credentials and calls done providing a user.
 
  * `ExpressJs` - Express.js, or simply Express, is a back end web application framework for Node.js * 
-.
+
+
+
+
 
 
 2. JWT-Authentication
