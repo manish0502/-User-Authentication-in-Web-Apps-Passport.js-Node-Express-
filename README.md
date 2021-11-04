@@ -23,11 +23,15 @@ $ cd complete-guide-to-express
 $ npm i and  npm start
 $ http://localhost:5000/api/v1/auth/register
 ```
+## About Passport-Local Strategy
 
 
-8. Send Email (nodemailer,ethereal and sendgrid )
-9. Stripe Payment
-10. E-Commerce API
-11. Auth Workflow (verify email, reset password)
-12. Sessons
-13. Yelp Clone
+### What follows is a brief description of each entry, but most directories contain their own README.md file with additional documentation, so browse around to learn more.
+
+  *  `PassportJS`- Passport is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express- based web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more.
+
+ * `passport-local-strategy/ `- The local authentication strategy authenticates users using a username and password. The strategy requires a verify callback, which accepts these credentials and calls done providing a user.
+
+ * `ExpressJs/` - Express.js, or simply Express, is a back end web application framework for Node.js * 
+.
+
