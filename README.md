@@ -26,7 +26,7 @@ $ http://localhost:5000/api/v1/auth/register
 ## About Passport-Local Strategy
 
 
-### What follows is a brief description of each entry, but most directories contain their own README.md file with additional documentation, so browse around to learn more.
+### What follows is a brief description of each entry, but most Npm library contain their own README.md file with additional documentation, so browse around to learn more.
 
   *  `PassportJS`- Passport is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express- based web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more.
 
