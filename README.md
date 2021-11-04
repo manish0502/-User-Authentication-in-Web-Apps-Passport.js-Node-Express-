@@ -35,7 +35,22 @@ $ http://localhost:5000/api/v1/auth/register
 ###
 
 
-2. JWT-Authentication
+2. Authentication Using Pubic key Cryptography
+
+#### Install Node.js , Express.js and MongoDB:
+
+```sh
+$ git clone https://github.com/manish0502/User-Authentication-in-Web-Apps.git
+$ cd public-key-cryptography
+$ npm i and  npm start
+$ http://localhost:5000/api/v1/auth/register
+```
+## About Elliplica Curve Cryptography
+
+  *  `Key-pair Generation`- JWT, or JSON Web Token, is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.
+
+
+3. JWT-Authentication
 
 #### Install Node.js , Express.js and MongoDB:
 
