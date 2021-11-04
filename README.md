@@ -1,7 +1,7 @@
 # User-Authentication-in-Web-Apps
 ## We will be dealing with different authentication way to secure Apps
-
-
+##### Authentication is a primary source of security for all web and mobile applications. In order to identify the user is genuine and the user has the privilege to access the web applications, authentication is very helpful.
+ 
 1. Authentication Using Passport-Local strategy
 2. Authentication Using Json-Web-Token(JWT)
 3. Public Key Cryptography (a.k.a. Asymmetric Cryptography)
@@ -10,11 +10,7 @@
 
 
 #### Each Repo has one Authentication method implemented
-##### Authentication is a primary source of security for all web and mobile applications. In order to identify the user is genuine and the user has the privilege to access the web applications, authentication is very helpful.
 
-
-### Description 
- 
 
 1. Passport-Local strategy
 
@@ -27,9 +23,6 @@ $ npm i and  npm start
 $ http://localhost:5000/api/v1/auth/register
 ```
 ## About Passport-Local Strategy
-
-
-### What follows is a brief description of each entry, but most Npm library contain their own README.md file with additional documentation, so browse around to learn more.
 
   *  `PassportJS`- Passport is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express- based web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more.
 
