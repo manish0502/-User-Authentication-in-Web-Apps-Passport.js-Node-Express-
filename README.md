@@ -9,11 +9,11 @@
 5. Authentication Using Passport-JWT strategy
 
 
-#### Course Exclusive
+#### I have implemented each authentication way in separate Repo
 
-[Node Tutorial and Projects Course]
 
-7. File Upload (local and cloudinary)
+
+
 8. Send Email (nodemailer,ethereal and sendgrid )
 9. Stripe Payment
 10. E-Commerce API
