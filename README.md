@@ -9,9 +9,9 @@
 5. Authentication Using Passport-JWT strategy
 
 
-#### I have implemented each authentication way in separate Repo
+#### Each Repo has one Authentication method implemented
 
-
+### Description
 
 
 8. Send Email (nodemailer,ethereal and sendgrid )
