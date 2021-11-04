@@ -10,8 +10,11 @@
 
 
 #### Each Repo has one Authentication method implemented
+##### Authentication is a primary source of security for all web and mobile applications. In order to identify the user is genuine and the user has the privilege to access the web applications, authentication is very helpful.
 
-### Description
+
+### Description 
+ 
 
 1. Passport-Local strategy
 
@@ -30,8 +33,8 @@ $ http://localhost:5000/api/v1/auth/register
 
   *  `PassportJS`- Passport is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express- based web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more.
 
- * `passport-local-strategy/ `- The local authentication strategy authenticates users using a username and password. The strategy requires a verify callback, which accepts these credentials and calls done providing a user.
+ * `passport-local-strategy `- The local authentication strategy authenticates users using a username and password. The strategy requires a verify callback, which accepts these credentials and calls done providing a user.
 
- * `ExpressJs/` - Express.js, or simply Express, is a back end web application framework for Node.js * 
+ * `ExpressJs` - Express.js, or simply Express, is a back end web application framework for Node.js * 
 .
 
