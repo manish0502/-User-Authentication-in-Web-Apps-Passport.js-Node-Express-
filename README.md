@@ -45,9 +45,11 @@ $ cd public-key-cryptography
 $ npm i and  npm start
 $ http://localhost:5000/api/v1/auth/register
 ```
-## About Elliplic Curve Cryptography
+#### About Elliplic Curve Cryptography
 
-  *  `Key-pair Generation`- JWT, or JSON Web Token, is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.
+  *  `Public Key Cryptography`- Public-key cryptography, or asymmetric cryptography, is a cryptographic system that uses pairs of keys. Each pair consists of a public key and a private key.
+
+  * `Elliptic curve cryptography` - Elliptic curves are applicable for encryption, digital signatures, pseudo-random generators and other tasks. They are also used in several integer factorization algorithms that have applications in cryptography, such as Lenstra elliptic-curve factorization.
 
 
 3. JWT-Authentication
@@ -60,6 +62,6 @@ $ cd authentication-using-jwt
 $ npm i and  npm start
 $ http://localhost:5000/api/v1/auth/register
 ```
-## About JSON-WEB-TOKEN
+#### About JSON-WEB-TOKEN
 
   *  `JSON Web Token(JWT)`- JWT, or JSON Web Token, is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.
