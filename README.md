@@ -22,7 +22,7 @@ $ cd complete-guide-to-express
 $ npm i and  npm start
 $ http://localhost:5000/api/v1/auth/register
 ```
-## About Passport-Local Strategy
+#### About Passport-Local Strategy
 
   *  `PassportJS`- Passport is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express- based web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more.
 
