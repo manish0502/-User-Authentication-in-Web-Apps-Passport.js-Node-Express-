@@ -8,7 +8,7 @@ const ExtractJwt = require('passport-jwt').ExtractJwt;
 var options = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
   secretOrKey: process.env.JWT_SECRET,
-  algorithms: ['RS256']
+  //algorithms: ['RS256']
 };
 
 var verifyCallback = (jwt_payload, done) => {
@@ -17,7 +17,7 @@ var verifyCallback = (jwt_payload, done) => {
     
     // We will assign the `sub` property on the JWT to the database ID of user
 
-     User.findOne({_id: jwt_payload.sub}, (err, user) => {
+     User.findOne({_id: jwt_payload.userId}, (err, user) => {
         
         // This flow look familiar?  It is the same as when we implemented
         // the `passport-local` strategy
@@ -42,7 +42,7 @@ var verifyCallback = (jwt_payload, done) => {
     // The JWT payload is passed into the verify callback
     const strategy = new JwtStrategy(options, verifyCallback)
 
-    passport.use('passport-jwt', strategy);
+    passport.use('jwt', strategy);
 }
 
 

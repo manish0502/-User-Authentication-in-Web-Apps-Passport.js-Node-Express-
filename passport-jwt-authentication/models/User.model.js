@@ -37,7 +37,7 @@ UserSchema.pre("save", async function () {
 
 UserSchema.methods.createJWT = function () {
 
-  let payload = { userId: this._id, name: this.name };
+  let payload = { userId: this._id, name: this.name  };
   let secret = process.env.JWT_SECRET;
   
   let Expires = {
