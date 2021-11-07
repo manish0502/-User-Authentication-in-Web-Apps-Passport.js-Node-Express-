@@ -26,10 +26,10 @@ app.use(cors({
 /*********************** Passport Configration ************************************/
 
 
-// const passportInit = require('./passport-jwt/passport')
-// passportInit(passport)
-// app.use(passport.initialize())
-// app.use(passport.session())
+const passportInit = require('./passport-jwt/passport')
+passportInit(passport)
+app.use(passport.initialize())
+//app.use(passport.session())
 
 /*
 
