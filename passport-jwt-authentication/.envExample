@@ -1,0 +1,5 @@
+NOD_ENV= development
+DB_STRING=
+DB__STRING_PROD=
+PORT=
+SECRET_KEY=

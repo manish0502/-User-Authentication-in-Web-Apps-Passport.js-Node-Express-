@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
-const app= express();
+const passport = require("passport");
+const app = express();
 const path = require('path');
 var logger = require('morgan')
 const cors = require('cors')
@@ -20,6 +21,14 @@ app.use(cors({
 
 
 
+/*********************** Passport Configration ************************************/
+
+
+// const passportInit = require('./passport-jwt/passport')
+// passportInit(passport)
+// app.use(passport.initialize())
+// app.use(passport.session())
+
 /*
 
  *  Where Angular builds to - In the ./angular/angular.json file, you will find this configuration
@@ -27,6 +36,7 @@ app.use(cors({
  * When you run `ng build`, the output will go to the ./public directory
  
  */
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 
@@ -35,5 +45,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/v1/auth', authRouter);
 
 app.listen(PORT, ()=>{
-    console.log(`Server is Running at port ${PORT}`);
+    console.log(`Server is listening at ${PORT} , http://localhost/${PORT}`);
 })
