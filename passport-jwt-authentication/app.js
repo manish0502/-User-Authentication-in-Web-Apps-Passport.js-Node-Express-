@@ -8,7 +8,9 @@ const cors = require('cors')
 const dbConnection = require('./config/db')
 const PORT = process.env.PORT || 3000;
 const authRouter = require('./routes/auth.router');
-
+// error handler
+const notFoundMiddleware = require('./middleware/not-found');
+const errorHandlerMiddleware = require('./middleware/error-handler');
 
 dbConnection;
 
@@ -43,6 +45,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 // routes
 
 app.use('/api/v1/auth', authRouter);
+
+
+app.use(notFoundMiddleware);
+app.use(errorHandlerMiddleware);
 
 app.listen(PORT, ()=>{
     console.log(`Server is listening at ${PORT} , http://localhost/${PORT}`);
