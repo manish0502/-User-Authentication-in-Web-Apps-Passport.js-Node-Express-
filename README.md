@@ -31,7 +31,6 @@ $ http://localhost:5000/api/v1/auth/register
 
 
 
-###
 
 
 2. Authentication Using Pubic key Cryptography
@@ -75,6 +74,11 @@ $ git clone https://github.com/manish0502/User-Authentication-in-Web-Apps.git
 $ cd passport-jwt-authentication
 $ npm i and  npm start
 $ http://localhost:5000/api/v1/auth/register
+
+$ cd passport-jwt-authentication/angular
+$ npm i and  ng serve
+$ http://localhost:4200
+
 ```
 #### About Passport-JWT
 
