@@ -5,8 +5,7 @@
 1. Authentication Using Passport-Local strategy
 2. Authentication Using Json-Web-Token(JWT)
 3. Public Key Cryptography (a.k.a. Asymmetric Cryptography)
-4. Authentication Using Json-Web-Token(JWT) + Public Key Cryptography
-5. Authentication Using Passport-JWT strategy
+4. Authentication Using Passport-JWT strategy
 
 
 #### Each Repo has one Authentication method implemented
@@ -65,3 +64,18 @@ $ http://localhost:5000/api/v1/auth/register
 #### About JSON-WEB-TOKEN
 
   *  `JSON Web Token(JWT)`- JWT, or JSON Web Token, is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.
+
+
+4. Passport-JWT Authentication
+
+#### Install Node.js ,Express.js and MongoDB:
+
+```sh
+$ git clone https://github.com/manish0502/User-Authentication-in-Web-Apps.git
+$ cd passport-jwt-authentication
+$ npm i and  npm start
+$ http://localhost:5000/api/v1/auth/register
+```
+#### About Passport-JWT
+
+  *  `Passport-JWT`- A Passport strategy for authenticating with a JSON Web Token. This module lets you authenticate endpoints using a JSON web token. It is intended to be used to secure RESTful endpoints without session.
