@@ -27,6 +27,16 @@ export class AuthService {
 
   }
 
+
+  loginUser(user:User):Observable<any[]>{
+    return this.http.post<User[]>(`${BASE_URL}/login`, user ,{
+      observe:'body',
+      withCredentials:true,
+      headers: new HttpHeaders().append('Content-Type', 'application/json')
+    });
+
+  }
+
   storeUserData(token, user) {
     localStorage.setItem('id_token', token);
     localStorage.setItem('user', JSON.stringify(user));

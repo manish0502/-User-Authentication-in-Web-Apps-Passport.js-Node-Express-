@@ -34,7 +34,7 @@ const register = asyncWrapper( async (req, res) => {
     res.status(StatusCodes.OK).json({
 
       success: true,
-      token: 'JWT is :' + token,
+      token:token,
        user: { 
             id: user.id ,
              name: user.name , 
