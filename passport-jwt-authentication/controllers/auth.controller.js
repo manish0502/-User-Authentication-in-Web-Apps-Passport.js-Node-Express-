@@ -31,7 +31,18 @@ const register = asyncWrapper( async (req, res) => {
     }
     // compare password
     const token = user.createJWT()
-    res.status(StatusCodes.OK).json({ user: { name: user.name }, token })
+    res.status(StatusCodes.OK).json({
+
+      success: true,
+      token: 'JWT is :' + token,
+       user: { 
+            id: user.id ,
+             name: user.name , 
+             email: user.email
+          }, 
+       
+       
+       })
   })
 
 module.exports = {
