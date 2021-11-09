@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services';
 
 @Component({
   selector: 'app-list-jobs',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListJobsComponent implements OnInit {
 
-  constructor() { }
+
+  user:any;
+
+   constructor( private authservice: AuthService , private router: Router) { }
 
   ngOnInit(): void {
+
+  }
+
+  getList(){
+    debugger
+    this.authservice.getJobs().subscribe(data=>{
+      this.user = data;
+      console.log(data)
+    },
+    err => {
+      console.log(err);
+      return false;
+    })
   }
 
 }

@@ -4,6 +4,7 @@ import { AuthService } from '../../services'
 import { NgForm } from "@angular/forms";
 import { Title } from "@angular/platform-browser";
 import { Router } from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-register',
@@ -23,6 +24,7 @@ export class RegisterComponent implements OnInit {
     private titleService:Title , 
     private authservice:AuthService ,
     private router: Router,
+    private flashMessage:FlashMessagesService
 
     ) { 
 
@@ -51,6 +53,7 @@ export class RegisterComponent implements OnInit {
 
       if(res){
        console.log(res)
+       this.flashMessage.show('You have registered successfully', {cssClass: 'alert-success', timeout: 5000});
        this.router.navigate(['/login']);
       }
       else{
@@ -61,6 +64,7 @@ export class RegisterComponent implements OnInit {
 
   }
 
+  
 
 
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { HttpClient ,HttpHeaders ,HttpParams}   from '@angular/common/http'
 import {  User} from '../models'
-
+import { map } from "rxjs/operators"; 
 
 
 const BASE_URL ='http://localhost:5000/api/v1/auth'
@@ -23,7 +23,8 @@ export class AuthService {
     return this.http.post<User[]>(`${BASE_URL}/register`, user ,{
       observe:'body',
       headers: new HttpHeaders().append('Content-Type', 'application/json')
-    });
+    }).pipe(map((res: any) => res));
+
 
   }
 
@@ -33,7 +34,7 @@ export class AuthService {
       observe:'body',
       withCredentials:true,
       headers: new HttpHeaders().append('Content-Type', 'application/json')
-    });
+    }).pipe(map((res: any) => res));;
 
   }
 
@@ -44,48 +45,34 @@ export class AuthService {
     this.user = user;
   }
 
+   
+  loadToken() {
+    const token = localStorage.getItem('id_token');
+    this.authToken = token;
+  }
+ 
+
+  logout() {
+    this.authToken = null;
+    this.user = null;
+    localStorage.clear();
+  }
+
+  getJobs():Observable<any[]> {
+    debugger
+    let headers = new HttpHeaders();
+    this.loadToken();
+    headers.append('Authorization', this.authToken);
+    headers.append('Content-Type', 'application/json');
+    return this.http.get<any[]>('http://localhost:5000/api/v1/jobs', {headers: headers})
+    
+  }
+
   
 
 
  
 
-
-//   LoginEmployee(body:Login):Observable<Login[]>{
-     
-//     return this.http.post<Login[]>(`${BASE_URL}/login`, body ,{
-//       observe:'body',
-//       withCredentials:true,
-//       headers: new HttpHeaders().append('Content-Type', 'application/json')
-//     });
-
-//   }
-
-  
-
-//   getByEmployeeId(id){
-    
-//     return this.http.get<Employee>(`${BASE_URL}/employee/${id}`);
-
-//   }
-
-//   getEmployeeList():Observable<Employee[]>{
-    
-//     return this.http.get<Employee[]>(`${BASE_URL}/employee`);
-
-//   }
-
-
-//   updateEmploye(emp:Employee){
-
-//     return this.http.put<Employee[]>(`${BASE_URL}/employee/${emp._id}`, emp);
-
-//   }
-
-//   deleteEmployee(id:string):Observable<Employee[]>{
-    
-//     return this.http.delete<Employee[]>(`${BASE_URL}/employee/${id}`);
-
-//   }
 
 
 
