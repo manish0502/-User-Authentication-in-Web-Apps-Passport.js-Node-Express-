@@ -1,7 +1,19 @@
-<div *ngFor=" let p of user">
-    <h2 class="page-header">{{p.company}}</h2>
-    <ul class="list-group">
-      <li class="list-group-item">Username : {{p.position}}</li>
-      <li class="list-group-item">Email : {{p.position}}</li>
-    </ul>
-  </div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Company</th>
+      <th scope="col">Position</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.company}}</td>
+      <td>{{ user.position}}</td>
+
+    </tr>
+  </tbody>
+
+
+
+
+</table>

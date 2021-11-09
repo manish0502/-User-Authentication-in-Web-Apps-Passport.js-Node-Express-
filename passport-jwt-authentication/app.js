@@ -9,6 +9,7 @@ const dbConnection = require('./config/db')
 const PORT = process.env.PORT || 3000;
 const authRouter = require('./routes/auth.router');
 const jobsRouter= require('./routes/job.router')
+const profileRouter = require('./routes/addition.router')
 
 // autherization of  passport
 const authentication = passport.authenticate('jwt',{ session:false})
@@ -49,6 +50,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // routes
 
 app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/new', profileRouter);
+
 app.use('/api/v1/jobs' ,authentication ,jobsRouter )
 
 

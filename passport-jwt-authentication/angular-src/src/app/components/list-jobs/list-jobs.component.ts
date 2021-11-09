@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services';
+import { Job } from '../../models'
+
 
 @Component({
   selector: 'app-list-jobs',
@@ -9,19 +11,21 @@ import { AuthService } from 'src/app/services';
 })
 export class ListJobsComponent implements OnInit {
 
+  users:Job[]= []
 
-  user:any;
 
    constructor( private authservice: AuthService , private router: Router) { }
 
   ngOnInit(): void {
 
+
   }
 
   getList(){
     debugger
-    this.authservice.getJobs().subscribe(data=>{
-      this.user = data;
+    this.authservice.getAll().subscribe(data=>{
+
+      this.users=data
       console.log(data)
     },
     err => {

@@ -34,7 +34,7 @@ export class AuthService {
       observe:'body',
       withCredentials:true,
       headers: new HttpHeaders().append('Content-Type', 'application/json')
-    }).pipe(map((res: any) => res));;
+    }).pipe(map((res: any) => res));
 
   }
 
@@ -59,12 +59,26 @@ export class AuthService {
   }
 
   getJobs():Observable<any[]> {
-    debugger
+    
     let headers = new HttpHeaders();
     this.loadToken();
     headers.append('Authorization', this.authToken);
     headers.append('Content-Type', 'application/json');
     return this.http.get<any[]>('http://localhost:5000/api/v1/jobs', {headers: headers})
+    .pipe(map((res: any) => res))
+    
+  }
+
+
+  getAll():Observable<any[]> {
+    debugger
+    
+    let headers = new HttpHeaders();
+    this.loadToken();
+    headers.append('Authorization', this.authToken);
+    headers.append('Content-Type', 'application/json');
+    return this.http.get<any[]>('http://localhost:5000/api/v1/new/profile', {headers: headers})
+    .pipe(map((res: any) => res))
     
   }
 
